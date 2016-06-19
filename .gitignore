@@ -1,4 +1,4 @@
-/Assets/**/private/**
+#/Assets/**/private/**
 
 /[Ll]ibrary/
 /[Tt]emp/
