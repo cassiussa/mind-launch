@@ -59,7 +59,7 @@ public class LayerStates : MonoBehaviour {
 
 	void Initialize() {
 		if (_cacheLayerState != layerState) {
-			print ("Initialize");
+			//print ("Initialize");
 			transform.position = new Vector3(0f,0f,20f);
 			_cacheLayerState = layerState;
 			SetState (State.Upcoming);

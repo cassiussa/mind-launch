@@ -9,10 +9,11 @@ public class LayerMotion : MonoBehaviour {
 	State _prevMotionState = State.None;
 	public State _cacheMotionState = State.None;
 
-	public global.State level;	// Test to see if I can globalize an enum - looks like I can.  Note, it's static here
+	//public global.State level;	// Test to see if I can globalize an enum - looks like I can.  Note, it's static here
 
 
 	void Awake () {
+		//level = global.level;	This only assigns the value, not the same reference :(
 		// Set the initial state to noSpeed so that it can gather the details about game state and apply them to this layer's motion
 		SetState (State.Initialize);
 	}
@@ -23,7 +24,7 @@ public class LayerMotion : MonoBehaviour {
 	}
 
 	IEnumerator Start() {
-		while (true) {	// Not sure this is going to work
+		while (true) {
 			switch (motionState) {
 			case State.None:
 				break;
@@ -68,14 +69,15 @@ public class LayerMotion : MonoBehaviour {
 
 	void Initialize() {
 		if (_cacheMotionState != motionState) {
-			if (global.speed == 0)
-				global.speed = 1;
-			print (global.speed);
+
 			_cacheMotionState = motionState;
 		}
+		if (global.speed != 0)
+			SetState (State.First);
 	}
 
 	void First() {
+		transform.Translate(Vector3.forward * Time.deltaTime * -global.speed);
 		if (_cacheMotionState != motionState) {
 
 			_cacheMotionState = motionState;
