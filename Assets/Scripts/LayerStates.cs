@@ -9,6 +9,8 @@ public class LayerStates : MonoBehaviour {
 	State _prevLayerState = State.None;
 	public State _cacheLayerState = State.None;
 
+	LayerFade layerFade;
+
 	/*
 	#region Basic Getters/Setters
 	public State CurrentState { get { return layerState; } }
@@ -18,6 +20,7 @@ public class LayerStates : MonoBehaviour {
 	
 	void Awake() {
 		SetState (State.Initialize);
+		layerFade = GetComponent<LayerFade> ();
 
 	}
 
@@ -60,6 +63,7 @@ public class LayerStates : MonoBehaviour {
 	void Initialize() {
 		if (_cacheLayerState != layerState) {
 			//print ("Initialize");
+			layerFade.fadeOut = false;
 			transform.position = new Vector3(0f,0f,20f);
 			_cacheLayerState = layerState;
 			SetState (State.Upcoming);
@@ -68,21 +72,21 @@ public class LayerStates : MonoBehaviour {
 
 	void Upcoming() {
 		if (_cacheLayerState != layerState) {
-
+			layerFade.fadeOut = false;
 			_cacheLayerState = layerState;
 		}
 	}
 
 	void Current() {
 		if (_cacheLayerState != layerState) {
-
+			layerFade.fadeOut = false;
 			_cacheLayerState = layerState;
 		}
 	}
 
 	void Fading() {
 		if (_cacheLayerState != layerState) {
-
+			layerFade.fadeOut = true;
 			_cacheLayerState = layerState;
 		}
 
@@ -90,7 +94,7 @@ public class LayerStates : MonoBehaviour {
 
 	void Success() {
 		if (_cacheLayerState != layerState) {
-
+			layerFade.fadeOut = false;
 			_cacheLayerState = layerState;
 		}
 
@@ -98,7 +102,7 @@ public class LayerStates : MonoBehaviour {
 
 	void Fail() {
 		if (_cacheLayerState != layerState) {
-
+			layerFade.fadeOut = false;
 			_cacheLayerState = layerState;
 		}
 
@@ -106,7 +110,7 @@ public class LayerStates : MonoBehaviour {
 
 	void Passed() {
 		if (_cacheLayerState != layerState) {
-
+			layerFade.fadeOut = false;
 			_cacheLayerState = layerState;
 		}
 
@@ -119,7 +123,7 @@ public class LayerStates : MonoBehaviour {
 
 	}
 
-	void SetState(State newState) {
+	public void SetState(State newState) {
 		_prevLayerState = layerState;
 		_cacheLayerState = State.None;
 		layerState = newState;

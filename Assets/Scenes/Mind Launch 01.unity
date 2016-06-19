@@ -143,6 +143,9 @@ GameObject:
   - 4: {fileID: 110225247}
   - 114: {fileID: 110225248}
   - 114: {fileID: 110225249}
+  - 114: {fileID: 110225251}
+  - 114: {fileID: 110225252}
+  - 54: {fileID: 110225250}
   m_Layer: 9
   m_Name: ShapeLayer
   m_TagString: ShapeLayer
@@ -195,6 +198,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   motionState: 0
   _cacheMotionState: 0
+--- !u!54 &110225250
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 110225246}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &110225251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 110225246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9dbbda8b0f8e4a3ba6f20579bd38f65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &110225252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 110225246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e781eccc5bc8d4188b25eeb2ac0eee0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  childRenderers: []
+  fadeTime: 3
+  fadeOut: 0
+  colour: {r: 0, g: 0, b: 0, a: 0}
+  colourInvisible: {r: 0, g: 0, b: 0, a: 0}
+  colourVisible: {r: 1, g: 1, b: 1, a: 1}
+  layerStates: {fileID: 0}
 --- !u!1 &181114226
 GameObject:
   m_ObjectHideFlags: 0
