@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using GlobalVariables;
 
 public class LayerFade : MonoBehaviour {
 	public Renderer[] childRenderers;
-	
-	public float fadeTime = 3.0f;
+
 	public bool fadeOut = false;
 	private float alphaCounter = 1f;
-	private float _cacheAlphaCounter = 1f;
 	public Color colour;
 	public Color colourInvisible;
 	public Color colourVisible;
@@ -38,7 +37,6 @@ public class LayerFade : MonoBehaviour {
 				Color col = thisRenderer.material.color;						// Cache the Color
 				var newMat = new Color(col.r, col.g, col.b, 1);			// Create a new Color reference
 				thisRenderer.material.color = newMat;							// Set the renderer material's colour to the newMat variable reference
-				print (newMat);
 				rendererIterator++;												// Increment the iteration counter
 			}
 		}
@@ -60,8 +58,8 @@ public class LayerFade : MonoBehaviour {
 		 * probably deactivate this script when certain conditions are met.
 		 */
 		if (fadeOut == true) {
-			_cacheAlphaCounter = alphaCounter;
-			alphaCounter -= Time.deltaTime / fadeTime;						// or we're subtracting time
+			//_cacheAlphaCounter = alphaCounter;
+			alphaCounter -= Time.deltaTime / global.fadeTime;						// or we're subtracting time
 		
 
 
@@ -70,7 +68,7 @@ public class LayerFade : MonoBehaviour {
 				layerStates.layerState = LayerStates.State.Fail;				// Totally faded out and no success or failure yet
 			} else if (alphaCounter != 0 && alphaCounter != 1) {
 				//if (_cacheAlphaCounter < alphaCounter) {
-				print ("fading is happening");
+				//	print ("fading is happening");
 				//}
 				alphaCounter = Mathf.Clamp01 (alphaCounter);							// Clamp the range
 				colour = Color.Lerp (colourInvisible, colourVisible, alphaCounter);		// Lerp between the invisible colour and the fully opaque colour

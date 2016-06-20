@@ -6,7 +6,7 @@ public class LayerMotion : MonoBehaviour {
 
 	public enum State { None, Initialize, First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth, Nineth, Tenth }
 	public State motionState = State.None;
-	State _prevMotionState = State.None;
+	//State _prevMotionState = State.None;
 	public State _cacheMotionState = State.None;
 
 	//public global.State level;	// Test to see if I can globalize an enum - looks like I can.  Note, it's static here
@@ -175,7 +175,7 @@ public class LayerMotion : MonoBehaviour {
 	}
 
 	void SetState(State newState) {
-		_prevMotionState = motionState;
+		//_prevMotionState = motionState;
 		_cacheMotionState = State.None;
 		motionState = newState;
 	}

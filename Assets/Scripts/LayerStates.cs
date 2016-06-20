@@ -6,7 +6,7 @@ public class LayerStates : MonoBehaviour {
 
 	public enum State { None, Initialize, Upcoming, Current, Fading, Success, Fail, Passed }
 	public State layerState = State.None;
-	State _prevLayerState = State.None;
+	//State _prevLayerState = State.None;
 	public State _cacheLayerState = State.None;
 
 	LayerFade layerFade;
@@ -124,7 +124,7 @@ public class LayerStates : MonoBehaviour {
 	}
 
 	public void SetState(State newState) {
-		_prevLayerState = layerState;
+		//_prevLayerState = layerState;
 		_cacheLayerState = State.None;
 		layerState = newState;
 	}
