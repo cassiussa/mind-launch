@@ -12,18 +12,33 @@ public class LayerShapes : MonoBehaviour {
 	public Material currentShapeMaterial;	// Reference, not value
 	public Material thisShapeMaterial;		// Randomly grabbed.  Used to replace currentShapeMaterial when ready
 	public int randomPosition;				// The grid position that will occupy the Current Shape
-	public Material[] availableMaterials;
+	public Material[] availableMaterials;	// These are the materials that would be available in this level
+	public Material[] layerMaterials;		// These are the materials for this level that were randomly selected for this Layer
 
 	// Use this for initialization
 	void Awake () {
 		currentShape = GameObject.Find ("Current Shape");
-		currentShapeMaterial = currentShape.GetComponentInChildren<Renderer> ().material;
+		// The the reference to the current shape's material so we can update it as needed
+		currentShapeMaterial = currentShape.GetComponentInChildren<Renderer> ().material;	// Need for *Reference*, not needed for value
 
 		// Randomize which mesh will be the Current Shape
-		randomPosition = Random.Range (0, 4);
+		randomPosition = Random.Range (0, 4);		// TODO: Needs to dynamically choose range later
 
-		availableMaterials = GameObject.Find ("/Materials/Level1").GetComponent<LevelMaterials>().materials;
-		print ("the material would be " + availableMaterials [randomPosition].name);
+		availableMaterials = GameObject.Find ("/Materials/Level1").GetComponent<LevelMaterials>().materials;	// TODO: Need to be able to use any level
+		layerMaterials = new Material[4];			// TODO: Need to dynamically assign array Index size later
+		for(var i=0;i<4;i++) {						// TODO: Need to dynamically assign iteration length
+			layerMaterials[i] = availableMaterials[Random.Range (0, availableMaterials.Length)];
+			if(i == 0)
+				mesh1.GetComponent<Renderer>().material = layerMaterials[i];
+			else if(i == 1)
+				mesh2.GetComponent<Renderer>().material = layerMaterials[i];
+			else if(i == 2)
+				mesh3.GetComponent<Renderer>().material = layerMaterials[i];
+			else if(i == 3)
+				mesh4.GetComponent<Renderer>().material = layerMaterials[i];
+
+		}
+
 	}
 
 }

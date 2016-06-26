@@ -390,6 +390,8 @@ MonoBehaviour:
   currentShapeMaterial: {fileID: 0}
   thisShapeMaterial: {fileID: 0}
   randomPosition: 0
+  availableMaterials: []
+  layerMaterials: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
