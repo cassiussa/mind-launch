@@ -79,7 +79,7 @@ namespace GlobalVariables {
 
 			for (int i=0;i<levelArrays.Length;i++) {
 				for(int a=0;a<levelArrays[i].Length;a++) {
-					print ("generating ARR #"+i+", GO #"+a);
+					//print ("generating ARR #"+i+", GO #"+a);
 					levelArrays[i][a] = (GameObject)Instantiate(levelOneGO, new Vector3(0f,0f,(10+(a*5))), Quaternion.identity);
 					levelArrays[i][a].name = "Shape Layer "+(a+1);
 					levelArrays[i][a].transform.parent = levelParents[i].transform;

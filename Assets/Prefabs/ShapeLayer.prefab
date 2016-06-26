@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 433272}
   - 114: {fileID: 11433272}
+  - 114: {fileID: 11477526}
   - 114: {fileID: 11433270}
   - 114: {fileID: 11463356}
   - 114: {fileID: 11463358}
@@ -370,6 +371,25 @@ MonoBehaviour:
   colourInvisible: {r: 0, g: 0, b: 0, a: 0}
   colourVisible: {r: 1, g: 1, b: 1, a: 1}
   layerStates: {fileID: 0}
+--- !u!114 &11477526
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33d4755ead8324ce6bc0c75414d25379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh1: {fileID: 133270}
+  mesh2: {fileID: 133266}
+  mesh3: {fileID: 133268}
+  mesh4: {fileID: 133262}
+  currentShape: {fileID: 0}
+  currentShapeMaterial: {fileID: 0}
+  thisShapeMaterial: {fileID: 0}
+  randomPosition: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
