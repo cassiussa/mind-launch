@@ -64,7 +64,6 @@ public class LayerStates : MonoBehaviour {
 		if (_cacheLayerState != layerState) {
 			//print ("Initialize");
 			layerFade.fadeOut = false;
-			transform.position = new Vector3(0f,0f,20f);
 			_cacheLayerState = layerState;
 			SetState (State.Upcoming);
 		}

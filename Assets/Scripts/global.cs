@@ -80,9 +80,8 @@ namespace GlobalVariables {
 			for (int i=0;i<levelArrays.Length;i++) {
 				for(int a=0;a<levelArrays[i].Length;a++) {
 					print ("generating ARR #"+i+", GO #"+a);
-					GameObject temp = (GameObject)Instantiate(levelOneGO, new Vector3(0f,0f,0f), Quaternion.identity);
-					temp.name = "Shape Layer "+(a+1);
-					levelArrays[i][a] = temp;
+					levelArrays[i][a] = (GameObject)Instantiate(levelOneGO, new Vector3(0f,0f,(10+(a*5))), Quaternion.identity);
+					levelArrays[i][a].name = "Shape Layer "+(a+1);
 					levelArrays[i][a].transform.parent = levelParents[i].transform;
 				}
 			}
@@ -179,10 +178,12 @@ namespace GlobalVariables {
 			if (_cacheLevelState != levelState) {
 				speed = 1;
 				for(int i=0;i<levelParents.Length;i++) {
-					if(levelParents[i] != levelOneParent)
+					if(levelParents[i] != levelOneParent) {
 						levelParents[i].SetActive(false);
-					else
+					} else {
 						levelParents[i].SetActive(true);
+
+					}
 				}
 				global.fadeTime = 3f;
 				Debug.Log ("One");
