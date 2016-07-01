@@ -28,17 +28,21 @@ public class LayerShapes : MonoBehaviour {
 		availableMaterials = GameObject.Find ("/Materials/Level1").GetComponent<LevelMaterials>().materials;	// TODO: Need to be able to use any level
 		layerMaterials = new Material[4];			// TODO: Need to dynamically assign array Index size later
 		for(var i=0;i<4;i++) {						// TODO: Need to dynamically assign iteration length
+
+			// This is how the RandomRangeExcept function works, but it's not needed here.
 			layerMaterials[i] = availableMaterials[global.RandomRangeExcept(0, availableMaterials.Length, randomPosition)];
-
-			if(i == 0)
-				mesh1.GetComponent<Renderer>().material = layerMaterials[i];
-			else if(i == 1)
-				mesh2.GetComponent<Renderer>().material = layerMaterials[i];
-			else if(i == 2)
-				mesh3.GetComponent<Renderer>().material = layerMaterials[i];
-			else if(i == 3)
-				mesh4.GetComponent<Renderer>().material = layerMaterials[i];
-
+			if(i != randomPosition) {
+				if(i == 0)
+					mesh1.GetComponent<Renderer>().material = layerMaterials[i];
+				else if(i == 1)
+					mesh2.GetComponent<Renderer>().material = layerMaterials[i];
+				else if(i == 2)
+					mesh3.GetComponent<Renderer>().material = layerMaterials[i];
+				else if(i == 3)
+					mesh4.GetComponent<Renderer>().material = layerMaterials[i];
+			} else {
+				
+			}
 		}
 
 	}
