@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using GlobalVariables;
 
 public class LayerShapes : MonoBehaviour {
 
@@ -27,7 +28,8 @@ public class LayerShapes : MonoBehaviour {
 		availableMaterials = GameObject.Find ("/Materials/Level1").GetComponent<LevelMaterials>().materials;	// TODO: Need to be able to use any level
 		layerMaterials = new Material[4];			// TODO: Need to dynamically assign array Index size later
 		for(var i=0;i<4;i++) {						// TODO: Need to dynamically assign iteration length
-			layerMaterials[i] = availableMaterials[Random.Range (0, availableMaterials.Length)];
+			layerMaterials[i] = availableMaterials[global.RandomRangeExcept(0, availableMaterials.Length, randomPosition)];
+
 			if(i == 0)
 				mesh1.GetComponent<Renderer>().material = layerMaterials[i];
 			else if(i == 1)

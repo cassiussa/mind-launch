@@ -326,5 +326,21 @@ namespace GlobalVariables {
 		}
 
 
+		public static int RandomRangeExcept(int min, int max, int except) {
+			int number;
+			do {
+				number = Random.Range (min, max);
+			}
+			while (number == except);
+			
+			return number;
+		}
+
 	}
+
+
+
+
+
+
 }
