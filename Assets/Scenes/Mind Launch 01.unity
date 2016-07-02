@@ -242,8 +242,12 @@ MonoBehaviour:
   childRenderers: []
   fadeOut: 0
   colour: {r: 0, g: 0, b: 0, a: 0}
+  coloura: 0
   colourInvisible: {r: 0, g: 0, b: 0, a: 0}
   colourVisible: {r: 1, g: 1, b: 1, a: 1}
+  camera: {fileID: 0}
+  distance: 0
+  fadeAmount: 0
   layerStates: {fileID: 0}
 --- !u!114 &110225253
 MonoBehaviour:
