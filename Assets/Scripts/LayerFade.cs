@@ -69,13 +69,17 @@ public class LayerFade : MonoBehaviour {
 				}
 
 			}
-		} else if(distance > 10) {
-			fadeAmount = (255-((distance-10)*15))/255;
-			foreach (Renderer childMaterial in childRenderers) {
-				//colour.a = fadeAmount;		// Lerp between the invisible colour and the fully opaque colour
-				Color newMat = new Color (childMaterial.material.color.r, childMaterial.material.color.g, childMaterial.material.color.b, fadeAmount);
-				childMaterial.material.color = newMat;								// Assign a standardized material to the circles
-			}
+		} else if (distance > 10) {
+			fadeAmount = (255 - ((distance - 10) * 15)) / 255;
+			FadeIn();
+		}
+	}
+
+	void FadeIn() {
+		foreach (Renderer childMaterial in childRenderers) {
+			if(fadeAmount >= 0.99f) fadeAmount = 1f;									// Force it to fully opaque when close enough
+			Color newMat = new Color (childMaterial.material.color.r, childMaterial.material.color.g, childMaterial.material.color.b, fadeAmount);
+			childMaterial.material.color = newMat;										// Assign a standardized material to the circles
 		}
 	}
 	
