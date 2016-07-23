@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LayerCollider : MonoBehaviour {
+public class LayerFadeCollider : MonoBehaviour {
 
 	LayerStates layerStates;
 
 	void Awake() {
-		layerStates = GetComponent<LayerStates> ();
+		layerStates = gameObject.transform.parent.GetComponent<LayerStates> ();
 	}
 
 	void OnTriggerEnter (Collider hit) {
